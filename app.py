@@ -6,26 +6,18 @@ app = Flask(__name__)
 fake = Faker()
 
 
-def get_bs() -> tuple:
-    first, second = [fake.bs() for _ in range(2)]
-    return first, second
-
-
-def get_tt() -> tuple:
-    resp = requests.get("https://itsthisforthat.com/api.php?json").json()
-    this, that = resp.values()
-    return this, that
-
-
 @app.route("/")
 def get_index() -> str:
-    first, second = get_bs()
-    this, that = get_tt()
+    # Use Faker for header
+    first, second = [fake.bs() for _ in range(2)]
+    header = f"{first.title()} and {second.title()}"
 
-    statement = f"{first.title()} and {second.title()}"
-    basically = f"Basically it's {this} for {that}"
+    # Use API for paragraph
+    response = requests.get("https://itsthisforthat.com/api.php?json").json()
+    this, that = response.values()
+    paragraph = f"Basically it's {this} for {that}"
 
-    return render_template("index.html", statement=statement, basically=basically)
+    return render_template("index.html", header=header, paragraph=paragraph)
 
 
 if __name__ == "__main__":
