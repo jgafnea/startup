@@ -5,6 +5,7 @@ click==8.1.7
 exceptiongroup==1.2.1
 Faker==25.0.0
 Flask==3.0.3
+gunicorn==22.0.0
 idna==3.7
 iniconfig==2.0.0
 itsdangerous==2.2.0
