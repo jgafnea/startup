@@ -17,7 +17,7 @@ def get_index() -> str:
     this, that = response.values()
     paragraph = f"Basically it's {this} for {that}"
 
-    return render_template("index.html", header=header, paragraph=paragraph)
+    return render_template("index.html.j2", header=header, paragraph=paragraph)
 
 
 if __name__ == "__main__":
