@@ -1,0 +1,14 @@
+name: Stay awake
+
+on:
+  schedule:
+    # Schedule the action to run every 25 minutes
+    - cron: "*/25 * * * *"
+
+jobs:
+  stay-awake:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Curl app to keep it awake
+        run: curl -s https://startup-jgafnea.koyeb.app > /dev/null
