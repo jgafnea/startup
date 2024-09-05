@@ -2,8 +2,8 @@ name: Stay awake
 
 on:
   schedule:
-    # Schedule the action to run every 25 minutes
-    - cron: "*/25 * * * *"
+    # Schedule the action to run every 12 hours
+    - cron: "0 */12 * * *"
 
 jobs:
   stay-awake:
